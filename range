@@ -1,0 +1,31 @@
+//Returns an array of numbers beginning
+//with start parameter and ending with
+//end parameter
+function range(start, end)
+{
+   var rangeOfNumbers = [];
+   for(var i = start; i <= end; i++)
+   {
+      rangeOfNumbers.push(i);
+   }
+   return rangeOfNumbers;
+}
+console.log(range(1, 10));
+
+//Returns the sum of all values in an 
+//array of numbers
+function sum(numArray)
+{
+   var arraySum = 0;
+   for (var i = 0; i < numArray.length; i++)
+   {
+      arraySum += numArray[i];
+   }
+   return arraySum;
+}
+
+console.log(sum(range(1,10)));
+
+//Modifies range function to accept a step parameter
+//to add values to the array in increments other
+//than 1

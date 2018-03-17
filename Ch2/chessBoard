@@ -5,7 +5,7 @@ function chessBoard()
    var hash = "#";              //Hash character to be printed
    var line = "";               //String to hold characters to be printed on each line
    
-   //Foe each row
+   //For each row
    for (var i = 0; i < 8; i++)
    {
      //For each column(or each position in the row)

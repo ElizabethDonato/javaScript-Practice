@@ -6,7 +6,7 @@ const SPENDING_THRESHOLD = 500;
 const STARTING_BALANCE = 850;
 
 //Variables relaed to phone purchase
-var bankBalance = 850;
+var bankBalance = STARTING_BALANCE;
 var purchasePrice = 0;
 var totalPrice = 0;
 var phonesPurchased = 0;

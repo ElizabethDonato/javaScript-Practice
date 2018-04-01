@@ -2,8 +2,8 @@
 const TAX_RATE = 0.065;
 const PHONE_PRICE = 99.99;
 const ACCESSORY_PRICE = 9.99;
-const SPENDING_THRESHOLD = 500;
-const STARTING_BALANCE = 850;
+const SPENDING_THRESHOLD = 250;
+const STARTING_BALANCE = 250;
 
 //Variables relaed to phone purchase
 var bankBalance = STARTING_BALANCE;
@@ -11,6 +11,7 @@ var purchasePrice = 0;
 var totalPrice = 0;
 var phonesPurchased = 0;
 var accessoriesPurchased = 0;
+var canAfford = true;
 
 //Loops to purchase phones and accessories until spending limit is reached
 while(totalPrice < SPENDING_THRESHOLD){
@@ -25,6 +26,9 @@ while(totalPrice < SPENDING_THRESHOLD){
 
 //Calculates new bank balance
 calculate_balance();
+
+//Checks to see if buyer can afford purchase
+afford_purchase();
 
 //Formats moetary output
    bankBalance = format_output(bankBalance);
@@ -54,6 +58,12 @@ function calculate_balance(){
    bankBalance -= totalPrice;
 }
 
+//Determines if buyer can afford the purchase
+function afford_purchase(){
+   if(bankBalance <= 0){
+      canAfford = false;
+   }
+}
 //Formats output
 function format_output(value){
    return "$" + value.toFixed(2);
@@ -66,12 +76,14 @@ function display_purchase_info(){
    console.log("Total Price: " + totalPrice);
    console.log("Starting Bank Balance:  $" + STARTING_BALANCE);
    //Displays error message if buyer cannot afford 
-   if(totalPrice > STARTING_BALANCE){
+   if(!canAfford){
       console.log("You cannot afford this purchase.");
    }
    else{
    console.log("Ending Bank Balance: " + bankBalance);
    }
 }
+
+
 
 
